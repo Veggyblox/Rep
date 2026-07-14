@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.name }} - Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>{{ user.name }}</h1>
+            <p style="font-size: 18px; font-weight: 500;">{{ user.title }}</p>
+            <div class="contact-info">
+                <span>📧 {{ user.email }}</span> | 
+                <span>📞 {{ user.phone }}</span>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        {% if user.summary %}
+        <div class="section">
+            <h2>About Me</h2>
+            <p>{{ user.summary }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Skills Section -->
+        {% if user.skills %}
+        <div class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                {% for skill in user.skills %}
+                    {% if skill.strip() %}
+                    <li class="skill-tag">{{ skill.strip() }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Experience Section -->
+        {% if user.experience %}
+        <div class="section">
+            <h2>Work Experience</h2>
+            <p style="white-space: pre-line;">{{ user.experience }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Education Section -->
+        {% if user.education %}
+        <div class="section">
+            <h2>Education</h2>
+            <p style="white-space: pre-line;">{{ user.education }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
