@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Builder - Details Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Builder Form</h1>
+        <p style="margin-bottom: 20px; color: #666;">Enter your details below to generate your resume UI.</p>
+        
+        <form action="/resume" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g., Riya Sharma" required>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Professional Title</label>
+                <input type="text" id="title" name="title" placeholder="e.g., Full Stack Developer" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="e.g., riya@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="e.g., +1 234 567 890" required>
+            </div>
+
+            <div class="form-group">
+                <label for="summary">Professional Summary</label>
+                <textarea id="summary" name="summary" rows="3" placeholder="Brief overview of your background..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills (comma-separated)</label>
+                <input type="text" id="skills" name="skills" placeholder="e.g., Python, Flask, HTML, CSS, JavaScript">
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Work Experience</label>
+                <textarea id="experience" name="experience" rows="4" placeholder="Detail your previous roles..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea id="education" name="education" rows="3" placeholder="Detail your degree and school..."></textarea>
+            </div>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+</body>
+</html>
